@@ -26,18 +26,32 @@ return require('packer').startup(function(use)
   -- Let Packer manage itself
   use({'wbthomason/packer.nvim', opt = true})
 
-  -- LSP management (must come first as per mason-lspconfig.nvim's instructions)
-  use "williamboman/mason.nvim"
-  use ({
-    "williamboman/mason-lspconfig.nvim",
-    config = function() require('pluginConfig.mason-lspconfig') end,
-  })
+  use {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
+  requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {
+        'williamboman/mason.nvim',
+        run = function() pcall(vim.cmd, 'MasonUpdate') end
+      },
+      {'williamboman/mason-lspconfig.nvim'},
 
-  -- LSP server
-  use({
-    'neovim/nvim-lspconfig',
-    config = function() require('pluginConfig.lspconfig') end
-  })
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    },
+     config = function() require('pluginConfig.lsp-zero') end,
+  }
 
   -- Trouble / Signature / Lightbulb
    use {
@@ -47,21 +61,6 @@ return require('packer').startup(function(use)
       'kosayoda/nvim-lightbulb',
     },
   }
-
-  -- Autocomplete
-  use({
-    "hrsh7th/nvim-cmp",
-    -- Sources for nvim-cmp
-    requires = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    config = function() require('pluginConfig.cmp') end,
-  })
 
   -- Copilot
   use({
@@ -80,11 +79,7 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   })
 
-  -- Snippets
-  use {"L3MON4D3/LuaSnip", config = function() require('pluginConfig.snippets') end}
-  use "rafamadriz/friendly-snippets"
-
-  -- Telescope
+    -- Telescope
   use({
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}},
