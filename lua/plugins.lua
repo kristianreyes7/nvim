@@ -69,7 +69,8 @@ return require('packer').startup(function(use)
       suggestion = { enabled = false },
       panel = { enabled = false },
       auto_trigger = true,
-    }
+    },
+     config = function() require("copilot").setup({}) end,
   })
 
   -- Treesitter
