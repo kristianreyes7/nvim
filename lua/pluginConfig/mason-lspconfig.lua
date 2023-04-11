@@ -17,7 +17,6 @@ require("mason-lspconfig").setup {
        "prismals",
        "sqlls",
        "rubyls",
-       "tailwindcss",
     },
     automatic_installation= true,
 }
