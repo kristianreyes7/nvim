@@ -26,9 +26,21 @@ return require('packer').startup(function(use)
   -- Let Packer manage itself
   use({'wbthomason/packer.nvim', opt = true})
 
-  -- LSP
-   use {
+  -- LSP management (must come first as per mason-lspconfig.nvim's instructions)
+  use "williamboman/mason.nvim"
+  use ({
+    "williamboman/mason-lspconfig.nvim",
+    config = function() require('pluginConfig.mason-lspconfig') end,
+  })
+
+  -- LSP server
+  use({
     'neovim/nvim-lspconfig',
+    config = function() require('pluginConfig.lspconfig') end
+  })
+
+  -- Trouble / Signature / Lightbulb
+   use {
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     {
@@ -130,6 +142,12 @@ return require('packer').startup(function(use)
   use({'jose-elias-alvarez/null-ls.nvim',
       config = function() require('pluginConfig.nullLs') end
   })
+
+  -- AutoPair
+  use {
+    "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
 
   -- MultiCursor
   use {'mg979/vim-visual-multi', branch = 'master',}

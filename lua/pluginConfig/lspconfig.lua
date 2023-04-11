@@ -8,22 +8,22 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable language servers with common settings
 local servers = {
-   -- "awk_ls",
-   -- "bashls",
-   -- "csharp_ls",
-   -- "omnisharp",
-   -- "cssls",
-   -- "cssmodules_ls",
-   -- "dockerls",
-   -- "eslint",
-   -- "html",
-   -- "jsonls",
-   -- "tsserver",
-   -- "lua_ls",
-   -- "marksman",
-   -- "powershell_es",
-   -- "rubyls",
-   -- "tailwindcss",
+    "awk_ls",
+    "bashls",
+    "csharp_ls",
+    "omnisharp",
+    "cssls",
+    "cssmodules_ls",
+    "dockerls",
+    "eslint",
+    "html",
+    "jsonls",
+    "tsserver",
+    "lua_ls",
+    "marksman",
+    "powershell_es",
+    "rubyls",
+    "tailwindcss",
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
@@ -31,8 +31,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   })
 end
-
--- require('lsp.sumneko')
 
 -- signature help hover
 require "lsp_signature".setup({ })

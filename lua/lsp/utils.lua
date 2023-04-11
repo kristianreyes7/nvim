@@ -23,7 +23,7 @@ function M.common_on_attach(client, bufnr)
   bufnnoremap("<leader>gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
   bufnnoremap("<leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 
-  -- Go to implementation
+ -- Go to implementation
   bufnnoremap("<leader>gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
 
   -- List symbol uses
