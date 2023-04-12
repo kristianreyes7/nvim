@@ -169,6 +169,12 @@ return require('packer').startup(function(use)
     disable = true,
   }
 
+  --aerial
+  use {
+     'stevearc/aerial.nvim',
+      config = function() require('aerial').setup() end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

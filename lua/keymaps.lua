@@ -118,6 +118,10 @@ nnoremap("<leader>lg", "<Cmd>Telescope live_grep<CR>")
 nnoremap("<leader>e", "<Cmd>NvimTreeToggle<CR>")  -- NvimTree
 -- nnoremap("<leader>e", "<Cmd>RnvimrToggle<CR>")
 
+
+-- toggle aerial
+map('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+
 -- EasyAlign
 -- xmap("ga", "<cmd>EasyAlign")
 -- nmap("ga", "<cmd>EasyAlign")
