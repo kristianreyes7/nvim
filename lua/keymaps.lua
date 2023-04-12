@@ -120,7 +120,7 @@ nnoremap("<leader>e", "<Cmd>NvimTreeToggle<CR>")  -- NvimTree
 
 
 -- toggle aerial
-map('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+map('n', '<leader>a', '<cmd>AerialToggle!<CR>', silent)
 
 -- EasyAlign
 -- xmap("ga", "<cmd>EasyAlign")
