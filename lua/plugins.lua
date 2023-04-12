@@ -168,7 +168,7 @@ return require('packer').startup(function(use)
     config = [[require('config.pdf_scribe')]],
     disable = true,
   }
-
+  use 'nvim-tree/nvim-web-devicons'
   --aerial
   use {
      'stevearc/aerial.nvim',
