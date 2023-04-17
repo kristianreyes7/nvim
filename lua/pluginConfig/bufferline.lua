@@ -7,7 +7,7 @@ end
 
 require('bufferline').setup({
   options = {
-    mode = "tabs",
+    mode = "windows",
     always_show_bufferline = true,
     numbers = tabname_format,
     show_buffer_icons = true,
