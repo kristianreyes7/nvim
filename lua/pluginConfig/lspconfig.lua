@@ -22,7 +22,6 @@ local servers = {
     "lua_ls",
     "marksman",
     "powershell_es",
-    "rubyls",
     "tailwindcss",
 }
 for _, lsp in ipairs(servers) do

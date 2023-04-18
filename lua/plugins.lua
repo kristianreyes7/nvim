@@ -31,7 +31,9 @@ return require('packer').startup(function(use)
   branch = 'v2.x',
   requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
+      {'neovim/nvim-lspconfig',
+        config = function() require('pluginConfig.lspconfig') end
+      },
       {
         'williamboman/mason.nvim',
         run = function() pcall(vim.cmd, 'MasonUpdate') end
@@ -39,7 +41,9 @@ return require('packer').startup(function(use)
       {'williamboman/mason-lspconfig.nvim'},
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/nvim-cmp',
+        config = function() require('pluginConfig.cmp') end
+      },
       {'hrsh7th/cmp-buffer'},
       {'hrsh7th/cmp-path'},
       {'saadparwaiz1/cmp_luasnip'},
@@ -49,6 +53,9 @@ return require('packer').startup(function(use)
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
+      {'jose-elias-alvarez/null-ls.nvim',
+        config = function() require('pluginConfig.nullLs') end
+      },
     },
      config = function() require('pluginConfig.lsp-zero') end,
   }
@@ -135,10 +142,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'junegunn/vim-easy-align'
-  use({'jose-elias-alvarez/null-ls.nvim',
-      config = function() require('pluginConfig.nullLs') end
-  })
-
   -- AutoPair
   use {
     "windwp/nvim-autopairs",
@@ -172,6 +175,7 @@ return require('packer').startup(function(use)
   --aerial
   use {
      'stevearc/aerial.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
       config = function() require('aerial').setup() end
   }
 
