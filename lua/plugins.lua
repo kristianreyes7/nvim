@@ -56,6 +56,9 @@ return require('packer').startup(function(use)
       {'jose-elias-alvarez/null-ls.nvim',
         config = function() require('pluginConfig.nullLs') end
       },
+      {'MunifTanjim/prettier.nvim',
+        config = function() require('pluginConfig.prettier') end
+      },
     },
      config = function() require('pluginConfig.lsp-zero') end,
   }
