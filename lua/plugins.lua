@@ -53,12 +53,6 @@ return require('packer').startup(function(use)
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
-      {'jose-elias-alvarez/null-ls.nvim',
-        config = function() require('pluginConfig.nullLs') end
-      },
-      {'MunifTanjim/prettier.nvim',
-        config = function() require('pluginConfig.prettier') end
-      },
     },
      config = function() require('pluginConfig.lsp-zero') end,
   }
@@ -81,6 +75,13 @@ return require('packer').startup(function(use)
       auto_trigger = true,
     },
      config = function() require("copilot").setup({}) end,
+  })
+
+  use({'jose-elias-alvarez/null-ls.nvim',
+    config = function() require('pluginConfig.nullLs') end
+  })
+ use({'MunifTanjim/prettier.nvim',
+    config = function() require('pluginConfig.prettier') end
   })
 
   -- Treesitter
