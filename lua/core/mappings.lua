@@ -1,7 +1,7 @@
 -- n, v, i, t = mode names
 
 local M = {}
-
+-- vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true })
 M.general = {
   i = {
     -- go to  beginning and end
@@ -13,6 +13,9 @@ M.general = {
     ["<C-l>"] = { "<Right>", "Move right" },
     ["<C-j>"] = { "<Down>", "Move down" },
     ["<C-k>"] = { "<Up>", "Move up" },
+
+    -- escape from insert
+    ["kj"] = {"<Esc>"},
   },
 
   n = {
