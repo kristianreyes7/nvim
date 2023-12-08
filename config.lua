@@ -85,3 +85,4 @@ table.insert(lvim.plugins, {
     end, 100)
   end,
 })
+lvim.keys.insert_mode["jj"] = "<Esc>"
