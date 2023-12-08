@@ -70,6 +70,12 @@ lvim.plugins = {
       require('symbols-outline').setup()
     end
   },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
 }
 lvim.builtin.which_key.mappings["t"] = {
   name = "Diagnostics",
