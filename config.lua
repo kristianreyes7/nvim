@@ -64,6 +64,12 @@ lvim.plugins = {
       --  vim.o.timeoutlen = 500
     -- end
   },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
+  },
 }
 lvim.builtin.which_key.mappings["t"] = {
   name = "Diagnostics",
